@@ -29,12 +29,12 @@ namespace ResoReportDataService.Services
     public class ProductReportService : IProductReportService
     {
         private readonly DataWareHouseReportingContext _context;
-        private readonly ProdPassioContext _prodPassioContext;
+        private readonly PosSystemContext _posSystemContext;
 
-        public ProductReportService(DataWareHouseReportingContext context, ProdPassioContext prodPassioContext)
+        public ProductReportService(DataWareHouseReportingContext context, PosSystemContext posSystemContext)
         {
             _context = context;
-            _prodPassioContext = prodPassioContext;
+            _posSystemContext = posSystemContext;
         }
 
         //public BaseResponsePagingViewModel<ProductReportViewModel> GetStoreProductProgress(
@@ -172,7 +172,7 @@ namespace ResoReportDataService.Services
             from = ((DateTime)from).GetStartOfDate();
             to = ((DateTime)to).GetEndOfDate();
 
-            var resultProductReport = _prodPassioContext.DateProducts
+            var resultProductReport = _posSystemContext.DateProducts
                 .Where(x =>
                     //x.Active == true &&
                     DateTime.Compare(x.Date, (DateTime)from) >= 0 &&
@@ -181,7 +181,7 @@ namespace ResoReportDataService.Services
 
             if (storeId != null)
             {
-                resultProductReport = _prodPassioContext.DateProducts
+                resultProductReport = _posSystemContext.DateProducts
                     .Where(x =>
                         x.StoreId == storeId &&
                         DateTime.Compare(x.Date, (DateTime)from) >= 0 &&
@@ -257,7 +257,7 @@ namespace ResoReportDataService.Services
 
             #endregion
 
-            var resultProductReport = _context.DateProducts
+            var resultProductReport = _posSystemContext.DateProducts
                 .Where(x =>
                     x.Active == true &&
                     DateTime.Compare(x.Date, (DateTime)from) >= 0 &&
@@ -266,7 +266,7 @@ namespace ResoReportDataService.Services
 
             if (storeId != null)
             {
-                resultProductReport = _context.DateProducts
+                resultProductReport = _posSystemContext.DateProducts
                     .Where(x =>
                         x.Active == true &&
                         x.StoreId == storeId &&
@@ -306,6 +306,8 @@ namespace ResoReportDataService.Services
             var sheetName = filter.FromDate == filter.ToDate
                 ? filter.FromDate?.ToString("dd/MM/yyyy")
                 : (filter.FromDate?.ToString("dd/MM/yyyy") + "-" + filter.ToDate?.ToString("dd/MM/yyyy"));
+
+            //
             var data = GetProductReport(filter, storeId);
 
             return ExcelUtils.ExportExcel(new ExcelModel<ProductReportViewModel>()
@@ -331,12 +333,15 @@ namespace ResoReportDataService.Services
                         DataIndex = "CateName",
                         ValueType = "string"
                     },
+
+
                     new ColumnConfig<ProductReportViewModel>()
                     {
                         Title = "Đơn vị tính",
                         DataIndex = "Unit",
                         ValueType = "string"
                     },
+                        
                     new ColumnConfig<ProductReportViewModel>()
                     {
                         Title = "Số lượng bán ra",

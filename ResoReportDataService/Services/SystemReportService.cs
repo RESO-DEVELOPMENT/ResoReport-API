@@ -27,14 +27,14 @@ namespace ResoReportDataService.Services
     public class SystemReportService : ISystemReportService
     {
         private readonly DataWareHouseReportingContext _context;
-        private readonly ProdPassioContext _passioContext;
+        private readonly PosSystemContext _posSystemContext;
         private readonly IMapper _mapper;
 
-        public SystemReportService(DataWareHouseReportingContext context, IMapper mapper, ProdPassioContext passioContext)
+        public SystemReportService(DataWareHouseReportingContext context, IMapper mapper, PosSystemContext posSystemContext)
         {
             _context = context;
             _mapper = mapper;
-            _passioContext = passioContext;
+            _posSystemContext = posSystemContext;
         }
 
         private List<StoreReportViewModel> GetListStoreReports(int? storeId, DateFilter filter)
