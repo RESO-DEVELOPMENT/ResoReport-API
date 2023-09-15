@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AutoMapper" Version="11.0.1" />
+      <PackageReference Include="EPPlus" Version="6.0.4" />
+      <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.17" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.17">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Reso.Sdk" Version="1.0.6" />
+      <PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.19" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ResoReportDataAccess\ResoReportDataAccess.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="Resources\PaymentReportTemplate.xlsx">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\PromotionReportTemplate.xlsx">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\StoreReportTemplate.xlsx">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ResoReportDataAccess\ResoReportDataAccess.csproj" />
+    </ItemGroup>
+
+</Project>

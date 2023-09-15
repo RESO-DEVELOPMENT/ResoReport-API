@@ -1,0 +1,358 @@
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\appsettings.Development.json
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\appsettings.json
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\ResoReport.exe
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Resources\PaymentReportTemplate.xlsx
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Resources\PromotionReportTemplate.xlsx
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Resources\StoreReportTemplate.xlsx
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\ResoReport.deps.json
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\ResoReport.runtimeconfig.json
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\ResoReport.runtimeconfig.dev.json
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\ResoReport.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\ResoReport.pdb
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\ResoReport.xml
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\AutoMapper.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Castle.Core.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\EPPlus.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\EPPlus.Interfaces.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\EPPlus.System.Drawing.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Humanizer.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.Versioning.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.AspNetCore.Razor.Language.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.CodeAnalysis.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.CodeAnalysis.Razor.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Proxies.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.Extensions.Caching.Abstractions.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.Extensions.Caching.StackExchangeRedis.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.Identity.Client.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.IO.RecyclableMemoryStream.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.OpenApi.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\dotnet-aspnet-codegenerator-design.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Newtonsoft.Json.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Pipelines.Sockets.Unofficial.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Reso.Sdk.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Scrutor.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\StackExchange.Redis.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Swashbuckle.AspNetCore.Annotations.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Swashbuckle.AspNetCore.Filters.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Swashbuckle.AspNetCore.Newtonsoft.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\System.Composition.AttributedModel.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\System.Composition.Convention.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\System.Composition.Hosting.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\System.Composition.Runtime.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\System.Composition.TypedParts.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\System.Diagnostics.PerformanceCounter.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\System.Linq.Dynamic.Core.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\System.Runtime.Caching.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.0\System.Diagnostics.PerformanceCounter.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\ResoReportDataAccess.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\ResoReportDataService.dll
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\ResoReportDataAccess.pdb
+D:\CODE\POS_Project\Report\ResoReport\bin\Debug\net5.0\ResoReportDataService.pdb
+D:\CODE\POS_Project\Report\ResoReport\obj\Debug\net5.0\ResoReport.csproj.AssemblyReference.cache
+D:\CODE\POS_Project\Report\ResoReport\obj\Debug\net5.0\ResoReport.GeneratedMSBuildEditorConfig.editorconfig
+D:\CODE\POS_Project\Report\ResoReport\obj\Debug\net5.0\ResoReport.AssemblyInfoInputs.cache
+D:\CODE\POS_Project\Report\ResoReport\obj\Debug\net5.0\ResoReport.AssemblyInfo.cs
+D:\CODE\POS_Project\Report\ResoReport\obj\Debug\net5.0\ResoReport.csproj.CoreCompileInputs.cache
+D:\CODE\POS_Project\Report\ResoReport\obj\Debug\net5.0\ResoReport.MvcApplicationPartsAssemblyInfo.cs
+D:\CODE\POS_Project\Report\ResoReport\obj\Debug\net5.0\ResoReport.MvcApplicationPartsAssemblyInfo.cache
+D:\CODE\POS_Project\Report\ResoReport\obj\Debug\net5.0\staticwebassets\ResoReport.StaticWebAssets.Manifest.cache
+D:\CODE\POS_Project\Report\ResoReport\obj\Debug\net5.0\staticwebassets\ResoReport.StaticWebAssets.xml
+D:\CODE\POS_Project\Report\ResoReport\obj\Debug\net5.0\scopedcss\bundle\ResoReport.styles.css
+D:\CODE\POS_Project\Report\ResoReport\obj\Debug\net5.0\ResoReport.RazorTargetAssemblyInfo.cache
+D:\CODE\POS_Project\Report\ResoReport\obj\Debug\net5.0\ResoReport.csproj.CopyComplete
+D:\CODE\POS_Project\Report\ResoReport\obj\Debug\net5.0\ResoReport.dll
+D:\CODE\POS_Project\Report\ResoReport\obj\Debug\net5.0\refint\ResoReport.dll
+D:\CODE\POS_Project\Report\ResoReport\obj\Debug\net5.0\ResoReport.pdb
+D:\CODE\POS_Project\Report\ResoReport\obj\Debug\net5.0\ResoReport.genruntimeconfig.cache
+D:\CODE\POS_Project\Report\ResoReport\obj\Debug\net5.0\ref\ResoReport.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\appsettings.Development.json
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\appsettings.json
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\ResoReport.exe
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Resources\PaymentReportTemplate.xlsx
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Resources\PromotionReportTemplate.xlsx
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Resources\StoreReportTemplate.xlsx
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\ResoReport.deps.json
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\ResoReport.runtimeconfig.json
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\ResoReport.runtimeconfig.dev.json
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\ResoReport.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\ResoReport.pdb
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\ResoReport.xml
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\AutoMapper.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Castle.Core.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\EPPlus.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\EPPlus.Interfaces.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\EPPlus.System.Drawing.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Humanizer.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.Versioning.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.AspNetCore.Razor.Language.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.CodeAnalysis.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.CodeAnalysis.Razor.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Proxies.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.Extensions.Caching.Abstractions.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.Extensions.Caching.StackExchangeRedis.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.Identity.Client.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.IO.RecyclableMemoryStream.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.OpenApi.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\dotnet-aspnet-codegenerator-design.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Newtonsoft.Json.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Pipelines.Sockets.Unofficial.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Reso.Sdk.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Scrutor.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\StackExchange.Redis.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Swashbuckle.AspNetCore.Annotations.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Swashbuckle.AspNetCore.Filters.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Swashbuckle.AspNetCore.Newtonsoft.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\System.Composition.AttributedModel.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\System.Composition.Convention.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\System.Composition.Hosting.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\System.Composition.Runtime.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\System.Composition.TypedParts.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\System.Diagnostics.PerformanceCounter.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\System.Linq.Dynamic.Core.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\System.Runtime.Caching.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.0\System.Diagnostics.PerformanceCounter.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\ResoReportDataAccess.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\ResoReportDataService.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\ResoReportDataAccess.pdb
+D:\CODE\POS_Project\Report - Deer\ResoReport\bin\Debug\net5.0\ResoReportDataService.pdb
+D:\CODE\POS_Project\Report - Deer\ResoReport\obj\Debug\net5.0\ResoReport.csproj.AssemblyReference.cache
+D:\CODE\POS_Project\Report - Deer\ResoReport\obj\Debug\net5.0\ResoReport.GeneratedMSBuildEditorConfig.editorconfig
+D:\CODE\POS_Project\Report - Deer\ResoReport\obj\Debug\net5.0\ResoReport.AssemblyInfoInputs.cache
+D:\CODE\POS_Project\Report - Deer\ResoReport\obj\Debug\net5.0\ResoReport.AssemblyInfo.cs
+D:\CODE\POS_Project\Report - Deer\ResoReport\obj\Debug\net5.0\ResoReport.csproj.CoreCompileInputs.cache
+D:\CODE\POS_Project\Report - Deer\ResoReport\obj\Debug\net5.0\ResoReport.MvcApplicationPartsAssemblyInfo.cs
+D:\CODE\POS_Project\Report - Deer\ResoReport\obj\Debug\net5.0\ResoReport.MvcApplicationPartsAssemblyInfo.cache
+D:\CODE\POS_Project\Report - Deer\ResoReport\obj\Debug\net5.0\staticwebassets\ResoReport.StaticWebAssets.Manifest.cache
+D:\CODE\POS_Project\Report - Deer\ResoReport\obj\Debug\net5.0\staticwebassets\ResoReport.StaticWebAssets.xml
+D:\CODE\POS_Project\Report - Deer\ResoReport\obj\Debug\net5.0\scopedcss\bundle\ResoReport.styles.css
+D:\CODE\POS_Project\Report - Deer\ResoReport\obj\Debug\net5.0\ResoReport.RazorTargetAssemblyInfo.cache
+D:\CODE\POS_Project\Report - Deer\ResoReport\obj\Debug\net5.0\ResoReport.csproj.CopyComplete
+D:\CODE\POS_Project\Report - Deer\ResoReport\obj\Debug\net5.0\ResoReport.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\obj\Debug\net5.0\refint\ResoReport.dll
+D:\CODE\POS_Project\Report - Deer\ResoReport\obj\Debug\net5.0\ResoReport.pdb
+D:\CODE\POS_Project\Report - Deer\ResoReport\obj\Debug\net5.0\ResoReport.genruntimeconfig.cache
+D:\CODE\POS_Project\Report - Deer\ResoReport\obj\Debug\net5.0\ref\ResoReport.dll

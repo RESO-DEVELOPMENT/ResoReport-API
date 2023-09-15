@@ -1,0 +1,42 @@
+D:\CODE\POS_Project\Report\ResoReportDataService\bin\Debug\net5.0\Resources\PaymentReportTemplate.xlsx
+D:\CODE\POS_Project\Report\ResoReportDataService\bin\Debug\net5.0\Resources\PromotionReportTemplate.xlsx
+D:\CODE\POS_Project\Report\ResoReportDataService\bin\Debug\net5.0\Resources\StoreReportTemplate.xlsx
+D:\CODE\POS_Project\Report\ResoReportDataService\bin\Debug\net5.0\ResoReportDataService.deps.json
+D:\CODE\POS_Project\Report\ResoReportDataService\bin\Debug\net5.0\ResoReportDataService.runtimeconfig.json
+D:\CODE\POS_Project\Report\ResoReportDataService\bin\Debug\net5.0\ResoReportDataService.runtimeconfig.dev.json
+D:\CODE\POS_Project\Report\ResoReportDataService\bin\Debug\net5.0\ResoReportDataService.dll
+D:\CODE\POS_Project\Report\ResoReportDataService\bin\Debug\net5.0\ResoReportDataService.pdb
+D:\CODE\POS_Project\Report\ResoReportDataService\bin\Debug\net5.0\ResoReportDataAccess.dll
+D:\CODE\POS_Project\Report\ResoReportDataService\bin\Debug\net5.0\ResoReportDataAccess.pdb
+D:\CODE\POS_Project\Report\ResoReportDataService\obj\Debug\net5.0\ResoReportDataService.csproj.AssemblyReference.cache
+D:\CODE\POS_Project\Report\ResoReportDataService\obj\Debug\net5.0\ResoReportDataService.GeneratedMSBuildEditorConfig.editorconfig
+D:\CODE\POS_Project\Report\ResoReportDataService\obj\Debug\net5.0\ResoReportDataService.AssemblyInfoInputs.cache
+D:\CODE\POS_Project\Report\ResoReportDataService\obj\Debug\net5.0\ResoReportDataService.AssemblyInfo.cs
+D:\CODE\POS_Project\Report\ResoReportDataService\obj\Debug\net5.0\ResoReportDataService.csproj.CoreCompileInputs.cache
+D:\CODE\POS_Project\Report\ResoReportDataService\obj\Debug\net5.0\ResoReportDataService.csproj.CopyComplete
+D:\CODE\POS_Project\Report\ResoReportDataService\obj\Debug\net5.0\ResoReportDataService.dll
+D:\CODE\POS_Project\Report\ResoReportDataService\obj\Debug\net5.0\refint\ResoReportDataService.dll
+D:\CODE\POS_Project\Report\ResoReportDataService\obj\Debug\net5.0\ResoReportDataService.pdb
+D:\CODE\POS_Project\Report\ResoReportDataService\obj\Debug\net5.0\ResoReportDataService.genruntimeconfig.cache
+D:\CODE\POS_Project\Report\ResoReportDataService\obj\Debug\net5.0\ref\ResoReportDataService.dll
+D:\CODE\POS_Project\Report - Deer\ResoReportDataService\bin\Debug\net5.0\Resources\PaymentReportTemplate.xlsx
+D:\CODE\POS_Project\Report - Deer\ResoReportDataService\bin\Debug\net5.0\Resources\PromotionReportTemplate.xlsx
+D:\CODE\POS_Project\Report - Deer\ResoReportDataService\bin\Debug\net5.0\Resources\StoreReportTemplate.xlsx
+D:\CODE\POS_Project\Report - Deer\ResoReportDataService\bin\Debug\net5.0\ResoReportDataService.deps.json
+D:\CODE\POS_Project\Report - Deer\ResoReportDataService\bin\Debug\net5.0\ResoReportDataService.runtimeconfig.json
+D:\CODE\POS_Project\Report - Deer\ResoReportDataService\bin\Debug\net5.0\ResoReportDataService.runtimeconfig.dev.json
+D:\CODE\POS_Project\Report - Deer\ResoReportDataService\bin\Debug\net5.0\ResoReportDataService.dll
+D:\CODE\POS_Project\Report - Deer\ResoReportDataService\bin\Debug\net5.0\ResoReportDataService.pdb
+D:\CODE\POS_Project\Report - Deer\ResoReportDataService\bin\Debug\net5.0\ResoReportDataAccess.dll
+D:\CODE\POS_Project\Report - Deer\ResoReportDataService\bin\Debug\net5.0\ResoReportDataAccess.pdb
+D:\CODE\POS_Project\Report - Deer\ResoReportDataService\obj\Debug\net5.0\ResoReportDataService.csproj.AssemblyReference.cache
+D:\CODE\POS_Project\Report - Deer\ResoReportDataService\obj\Debug\net5.0\ResoReportDataService.GeneratedMSBuildEditorConfig.editorconfig
+D:\CODE\POS_Project\Report - Deer\ResoReportDataService\obj\Debug\net5.0\ResoReportDataService.AssemblyInfoInputs.cache
+D:\CODE\POS_Project\Report - Deer\ResoReportDataService\obj\Debug\net5.0\ResoReportDataService.AssemblyInfo.cs
+D:\CODE\POS_Project\Report - Deer\ResoReportDataService\obj\Debug\net5.0\ResoReportDataService.csproj.CoreCompileInputs.cache
+D:\CODE\POS_Project\Report - Deer\ResoReportDataService\obj\Debug\net5.0\ResoReportDataService.csproj.CopyComplete
+D:\CODE\POS_Project\Report - Deer\ResoReportDataService\obj\Debug\net5.0\ResoReportDataService.dll
+D:\CODE\POS_Project\Report - Deer\ResoReportDataService\obj\Debug\net5.0\refint\ResoReportDataService.dll
+D:\CODE\POS_Project\Report - Deer\ResoReportDataService\obj\Debug\net5.0\ResoReportDataService.pdb
+D:\CODE\POS_Project\Report - Deer\ResoReportDataService\obj\Debug\net5.0\ResoReportDataService.genruntimeconfig.cache
+D:\CODE\POS_Project\Report - Deer\ResoReportDataService\obj\Debug\net5.0\ref\ResoReportDataService.dll
