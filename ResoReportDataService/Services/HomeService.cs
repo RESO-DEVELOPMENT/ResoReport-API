@@ -176,6 +176,26 @@ namespace ResoReportDataService.Services
 
             #region TrendInsights
 
+            var grossSales = new TrendInsight()
+            {
+                Value = dateReportsInDuration.Sum(x => x.FinalAmount),
+                Trend = dateReportsInPreviousDuration.Sum(x => x.FinalAmount) != 0
+                    ? (dateReportsInDuration.Sum(x => x.FinalAmount) -
+                       dateReportsInPreviousDuration.Sum(x => x.FinalAmount)) /
+                    dateReportsInPreviousDuration.Sum(x => x.FinalAmount) * 100
+                    : 0
+            };
+
+            var netSales = new TrendInsight()
+            {
+                Value = dateReportsInDuration.Sum(x => x.TotalAmount),
+                Trend = dateReportsInPreviousDuration.Sum(x => x.TotalAmount) != 0
+                    ? (dateReportsInDuration.Sum(x => x.TotalAmount) -
+                       dateReportsInPreviousDuration.Sum(x => x.TotalAmount)) /
+                    dateReportsInPreviousDuration.Sum(x => x.TotalAmount) * 100
+                    : 0
+            };
+
             var totalTransaction = new TrendInsight()
             {
                 Value = TotalOrderRID,
@@ -225,6 +245,8 @@ namespace ResoReportDataService.Services
                     }).OrderByDescending(x => x.FinalAmount).First().ProductName,
                 Orders = orderInsight.ToList(),
                 TotalTransaction = totalTransaction,
+                GrossSales = grossSales,
+                NetSales = netSales,
                 // TotalCustomers = ,
                 AvgTransactionAmount = avgTransactionAmount
             };
