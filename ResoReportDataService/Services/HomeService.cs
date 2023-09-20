@@ -51,8 +51,9 @@ namespace ResoReportDataService.Services
 
             return new SummaryViewModel()
             {
-                TotalOrders = (int)orders.Sum(x => x.TotalAmount),
-                LastUpdatedTime = Utils.GetCurrentDate()
+                NetSales = orders.Sum(x => x.TotalAmount),
+                TotalOrders = orders.Count(),
+                LastUpdatedTime = DateTime.Now
             };
         }
 
