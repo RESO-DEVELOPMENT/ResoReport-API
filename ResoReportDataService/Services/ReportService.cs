@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Extensions;
 using Newtonsoft.Json.Schema;
 using OfficeOpenXml;
 using OfficeOpenXml.Drawing.Slicer.Style;
@@ -24,26 +25,26 @@ namespace ResoReportDataService.Services
         List<PaymentReportViewModel> GetPaymentReport(DateFilter filter);
         List<PromotionReportViewModel> GetPromotionReport(DateFilter filter);
         List<StoreReportViewModel> GetProductReport(DateFilter filter);
-        List<OrderDetailReportViewModel> GetOrderDetailReport(int storeId , DateFilter filter);
+        List<OrderDetailReportViewModel> GetOrderDetailReport(Guid storeId , DateFilter filter);
 
         FileStreamResult ExportPromotionReportToExel(DateFilter filter, List<PromotionReportViewModel> orders);
         FileStreamResult ExportStoreReportToExcel(DateFilter filter, List<StoreReportViewModel> result);
 
 
         FileStreamResult ExportPaymentReportToExcel(DateFilter filter, List<PaymentReportViewModel> result);
-        FileStreamResult ExportOrderDetailReportToExcel(int storeId, DateFilter filter);
+        FileStreamResult ExportOrderDetailReportToExcel(Guid storeId, DateFilter filter);
 
     }
 
     public class ReportService : IReportService
     {
-        private readonly ProdPassioContext _passioContext;
+        private readonly PosSystemContext _posSystemContext;
         private readonly IRawQueryService _rawQueryService;
 
 
-        public ReportService(ProdPassioContext passioContext, IRawQueryService rawQueryService)
+        public ReportService(PosSystemContext posSystemContext, IRawQueryService rawQueryService)
         {
-            _passioContext = passioContext;
+            _posSystemContext = posSystemContext;
             _rawQueryService = rawQueryService;
         }
 
@@ -76,36 +77,32 @@ namespace ResoReportDataService.Services
 
             #endregion
 
-            var result = _passioContext.Orders
-                .Include(x => x.Store)
-                .Where(x => x.OrderStatus == 2 &&
-                            x.Store.RunReport == true &&
-                            x.Store.IsAvailable == true &&
-                            x.OrderType >= (int)OrderTypesEnums.AtStore &&
-                            x.OrderType <= (int)OrderTypesEnums.Delivery &&
-                            DateTime.Compare((DateTime)x.CheckInDate, ((DateTime)from).GetStartOfDate()) >= 0 &&
-                            DateTime.Compare((DateTime)x.CheckInDate, ((DateTime)to).GetEndOfDate()) <= 0)
+            var result = _posSystemContext.Orders
+                .Include(x => x.Session)
+                .Where(x => x.Status.Equals(OrderStatus.PAID) &&
+                            DateTime.Compare(x.CheckInDate, (DateTime)from) >= 0 &&
+                            DateTime.Compare(x.CheckInDate, (DateTime)to) <= 0)
                 .GroupBy(x => new
                 {
-                    StoreId = x.StoreId,
-                    StoreName = x.Store.Name
+                    StoreId = x.Session.Store.Id,
+                    StoreName = x.Session.Store.Name,
                 })
-                .Select(x => new StoreReportViewModel()
+                .Select(x => new StoreReportViewModel
                 {
                     StoreName = x.Key.StoreName,
-                    TotalOrderTakeAway = x.Count(order => order.OrderType == (int)OrderTypesEnums.TakeAway),
-                    FinalAmountTakeAway = x.Where(order => order.OrderType == (int)OrderTypesEnums.TakeAway)
-                        .Sum(order => order.FinalAmount),
-                    TotalOrderAtStore = x.Count(order => order.OrderType == (int)OrderTypesEnums.AtStore),
-                    FinalAmountAtStore = x.Where(order => order.OrderType == (int)OrderTypesEnums.AtStore)
-                        .Sum(order => order.FinalAmount),
-                    TotalOrderDelivery = x.Count(order => order.OrderType == (int)OrderTypesEnums.Delivery),
-                    FinalAmountDelivery = x.Where(order => order.OrderType == (int)OrderTypesEnums.Delivery)
-                        .Sum(order => order.FinalAmount),
+
+                    TotalOrderAtStore = x.Count(y => y.OrderType.Equals(OrderType.EAT_IN)),
+                    TotalOrderTakeAway = x.Count(y => y.OrderType.Equals(OrderType.TAKE_AWAY)),
+                    TotalOrderDelivery = x.Count(y => y.OrderType.Equals(OrderType.DELIVERY)),
+
+                    FinalAmountAtStore = x.Where(y => y.OrderType.Equals(OrderType.EAT_IN)).Sum(y => y.FinalAmount),
+                    FinalAmountTakeAway = x.Where(y => y.OrderType.Equals(OrderType.TAKE_AWAY)).Sum(y => y.FinalAmount),
+                    FinalAmountDelivery = x.Where(y => y.OrderType.Equals(OrderType.DELIVERY)).Sum(y => y.FinalAmount),
+
                     TotalBills = x.Count(),
-                    TotalSales = x.Sum(order => order.TotalAmount),
-                    TotalDiscount = x.Sum(order => order.Discount + order.DiscountOrderDetail),
-                    TotalSalesAfterDiscount = x.Sum(order => order.FinalAmount)
+                    TotalSales = x.Sum(y => y.TotalAmount),
+                    TotalDiscount = x.Sum(y => y.Discount),
+                    TotalSalesAfterDiscount = x.Sum(y => y.FinalAmount)
                 }).ToList();
 
             return result;
@@ -140,36 +137,32 @@ namespace ResoReportDataService.Services
 
             #endregion
 
-            var result = _passioContext.Orders
-                .Include(x => x.Store)
-                .Where(x => x.OrderStatus == 2 &&
-                            x.Store.RunReport == true &&
-                            x.Store.IsAvailable == true &&
-                            x.OrderType >= (int)OrderTypesEnums.AtStore &&
-                            x.OrderType <= (int)OrderTypesEnums.Delivery &&
-                            DateTime.Compare((DateTime)x.CheckInDate, ((DateTime)from).GetStartOfDate()) >= 0 &&
-                            DateTime.Compare((DateTime)x.CheckInDate, ((DateTime)to).GetEndOfDate()) <= 0)
+            var result = _posSystemContext.Orders
+                .Include(x => x.Session)
+                .Where(x => x.Status == OrderStatus.PAID.GetDisplayName() &&
+                            DateTime.Compare(x.CheckInDate, (DateTime)from) >= 0 &&
+                            DateTime.Compare(x.CheckInDate, (DateTime)to) <= 0)
                 .GroupBy(x => new
                 {
-                    StoreId = x.StoreId,
-                    StoreName = x.Store.Name
+                    StoreId = x.Session.Store.Id,
+                    StoreName = x.Session.Store.Name,
                 })
-                .Select(x => new StoreReportViewModel()
+                .Select(x => new StoreReportViewModel
                 {
                     StoreName = x.Key.StoreName,
-                    TotalOrderTakeAway = x.Count(order => order.OrderType == (int)OrderTypesEnums.TakeAway),
-                    FinalAmountTakeAway = x.Where(order => order.OrderType == (int)OrderTypesEnums.TakeAway)
-                        .Sum(order => order.FinalAmount),
-                    TotalOrderAtStore = x.Count(order => order.OrderType == (int)OrderTypesEnums.AtStore),
-                    FinalAmountAtStore = x.Where(order => order.OrderType == (int)OrderTypesEnums.AtStore)
-                        .Sum(order => order.FinalAmount),
-                    TotalOrderDelivery = x.Count(order => order.OrderType == (int)OrderTypesEnums.Delivery),
-                    FinalAmountDelivery = x.Where(order => order.OrderType == (int)OrderTypesEnums.Delivery)
-                        .Sum(order => order.FinalAmount),
+
+                    TotalOrderAtStore = x.Count(y => y.OrderType.Equals(OrderType.EAT_IN)),
+                    TotalOrderTakeAway = x.Count(y => y.OrderType.Equals(OrderType.TAKE_AWAY)),
+                    TotalOrderDelivery = x.Count(y => y.OrderType.Equals(OrderType.DELIVERY)),
+
+                    FinalAmountAtStore = x.Where(y => y.OrderType.Equals(OrderType.EAT_IN)).Sum(y => y.FinalAmount),
+                    FinalAmountTakeAway = x.Where(y => y.OrderType.Equals(OrderType.TAKE_AWAY)).Sum(y => y.FinalAmount),
+                    FinalAmountDelivery = x.Where(y => y.OrderType.Equals(OrderType.DELIVERY)).Sum(y => y.FinalAmount),
+
                     TotalBills = x.Count(),
-                    TotalSales = x.Sum(order => order.TotalAmount),
-                    TotalDiscount = x.Sum(order => order.Discount + order.DiscountOrderDetail),
-                    TotalSalesAfterDiscount = x.Sum(order => order.FinalAmount)
+                    TotalSales = x.Sum(y => y.TotalAmount),
+                    TotalDiscount = x.Sum(y => y.Discount),
+                    TotalSalesAfterDiscount = x.Sum(y => y.FinalAmount)
                 }).ToList();
 
             return result;
@@ -236,31 +229,27 @@ namespace ResoReportDataService.Services
 
             #endregion
 
-            var result = _passioContext.Orders
-                .Include(x => x.Customer)
-                .Include(x => x.Store)
-                .Where(x => x.OrderStatus == 2 &&
-                            x.CustomerId != null &&
-                            x.Att1.Contains("passio-100") &&
+            var result = _posSystemContext.Orders
+                .Include(x => x.Session)
+                .ThenInclude(x => x.Store)
+                .Where(x => x.Status == OrderStatus.PAID.GetDisplayName() &&
                             DateTime.Compare((DateTime)x.CheckInDate, ((DateTime)from).GetStartOfDate()) >= 0 &&
                             DateTime.Compare((DateTime)x.CheckInDate, ((DateTime)to).GetEndOfDate()) <= 0
                 )
                 .GroupBy(x => new
                 {
-                    CustomerId = x.CustomerId,
-                    CustomerName = x.Customer.Name,
-                    StoreId = x.StoreId,
-                    StoreName = x.Store.Name
+                    StoreId = x.Session.Store.Id,
+                    StoreName = x.Session.Store.Name
                 })
                 .Select(x => new PromotionReportViewModel()
                 {
-                    CustomerName = x.Key.CustomerName,
+                    CustomerName = "",
                     SumAmount = x.Sum(order => order.TotalAmount),
                     StoreName = x.Key.StoreName
                 }).ToList();
             return result;
         }
-        public List<OrderDetailReportViewModel> GetOrderDetailReport(int storeId, DateFilter filter)
+        public List<OrderDetailReportViewModel> GetOrderDetailReport(Guid storeId, DateFilter filter)
         {
             #region Check Date range
 
@@ -289,64 +278,71 @@ namespace ResoReportDataService.Services
 
             #endregion
 
-            var orders = _passioContext.Orders
-                    .Include(x => x.Payments)
-                    .Where(x => x.OrderStatus == (int)OrderStatusEnum.Finish &&
-                            x.StoreId == storeId &&
-                            DateTime.Compare((DateTime)x.CheckInDate, ((DateTime)from).GetStartOfDate()) >= 0 &&
-                            DateTime.Compare((DateTime)x.CheckInDate, ((DateTime)to).GetEndOfDate()) <= 0)
-                    .Select(x => new
-                    {
-                        x.CheckInDate,
-                        x.InvoiceId,
-                        x.Payments,
-                        x.RentId,
-                        x.Discount
-                    })
-                    .OrderBy(x => x.CheckInDate.Value.Date)
-                    .ToList();
+            var orderReport = _posSystemContext.Orders
+                                .Include(x => x.Session)
+                                .Where(x => x.Session.StoreId.Equals(storeId) &&
+                                            DateTime.Compare(x.CheckInDate, (DateTime)from) >= 0 &&
+                                            DateTime.Compare(x.CheckInDate, (DateTime)to) <= 0);
 
-            var listOrderDetail = _passioContext.OrderDetails
-                    .Where(x => x.Status == (int)OrderDetailStatus.Finish &&
-                            x.StoreId == storeId &&
-                            DateTime.Compare((DateTime)x.OrderDate, ((DateTime)from).GetStartOfDate()) >= 0 &&
-                            DateTime.Compare((DateTime)x.OrderDate, ((DateTime)to).GetEndOfDate()) <= 0)
-                    .ToList();
 
-            List<OrderDetailReportViewModel> listData = new List<OrderDetailReportViewModel>();
+            //var orders = _posSystemContext.Orders
+            //        .Include(x => x.Session)
+            //        .Where(x => x.Status == OrderStatus.PAID.GetDisplayName() &&
+            //                x.Session.StoreId == storeId &&
+            //                DateTime.Compare((DateTime)x.CheckInDate, ((DateTime)from).GetStartOfDate()) >= 0 &&
+            //                DateTime.Compare((DateTime)x.CheckInDate, ((DateTime)to).GetEndOfDate()) <= 0)
+            //        .Select(x => new
+            //        {
+            //            x.CheckInDate,
+            //            x.InvoiceId,
+            //            x.Payments,
+            //            x.RentId,
+            //            x.Discount
+            //        })
+            //        .OrderBy(x => x.CheckInDate.Value.Date)
+            //        .ToList();
+
+            //var listOrderDetail = _posSystemContext.OrderDetails
+            //        .Where(x => 
+            //                x.StoreId.Equals(storeId) &&
+            //                DateTime.Compare((DateTime)x.OrderDate, ((DateTime)from).GetStartOfDate()) >= 0 &&
+            //                DateTime.Compare((DateTime)x.OrderDate, ((DateTime)to).GetEndOfDate()) <= 0)
+            //        .ToList();
+
+            //List<OrderDetailReportViewModel> listData = new List<OrderDetailReportViewModel>();
            
-            foreach (var order in orders)
-            {
-                var detailsOfOrder = listOrderDetail.Where(x => x.RentId == order.RentId).ToList();
-                foreach (var detail in detailsOfOrder)
-                {
-                    var orderDetail = new OrderDetailReportViewModel()
-                    {
-                        CheckInDate = detail.OrderDate.ToString("dd/MM/yyyy hh:mm tt"),
-                        InvoiceId = order.InvoiceId,
-                        ProductCode = detail.Product.Code,
-                        ProductName = detail.Product.ProductName,
-                        UnitPrice = detail.UnitPrice,
-                        Quantity = detail.Quantity,
-                        TotalAmount = detail.TotalAmount,
-                        DiscountOrderDetail = detail.Discount,
-                    };
-                    var totalQuantity = detailsOfOrder.Select(x => x.ItemQuantity).Sum();
-                    orderDetail.Discount = order.Discount / totalQuantity * detail.Quantity;
-                    orderDetail.FinalAmount = (detail.TotalAmount - detail.Discount - orderDetail.Discount);
-                    if (order.Payments.Count() != 0)
-                    {
-                        var orderPayment = order.Payments.FirstOrDefault(x => x.ToRentId == order.RentId).Type;
-                        orderDetail.PaymentName = _passioContext.PaymentTypes.FirstOrDefault(x => x.Id == orderPayment).Name;
-                    }
-                    else
-                    {
-                        orderDetail.PaymentName = "";
-                    }
-                    listData.Add(orderDetail);
-                }
-            }
-            return listData;
+            //foreach (var order in orders)
+            //{
+            //    var detailsOfOrder = listOrderDetail.Where(x => x.RentId == order.RentId).ToList();
+            //    foreach (var detail in detailsOfOrder)
+            //    {
+            //        var orderDetail = new OrderDetailReportViewModel()
+            //        {
+            //            CheckInDate = detail.OrderDate.ToString("dd/MM/yyyy hh:mm tt"),
+            //            InvoiceId = order.InvoiceId,
+            //            ProductCode = detail.Product.Code,
+            //            ProductName = detail.Product.ProductName,
+            //            UnitPrice = detail.UnitPrice,
+            //            Quantity = detail.Quantity,
+            //            TotalAmount = detail.TotalAmount,
+            //            DiscountOrderDetail = detail.Discount,
+            //        };
+            //        var totalQuantity = detailsOfOrder.Select(x => x.ItemQuantity).Sum();
+            //        orderDetail.Discount = order.Discount / totalQuantity * detail.Quantity;
+            //        orderDetail.FinalAmount = (detail.TotalAmount - detail.Discount - orderDetail.Discount);
+            //        if (order.Payments.Count() != 0)
+            //        {
+            //            var orderPayment = order.Payments.FirstOrDefault(x => x.ToRentId == order.RentId).Type;
+            //            orderDetail.PaymentName = _posSystemContext.PaymentTypes.FirstOrDefault(x => x.Id == orderPayment).Name;
+            //        }
+            //        else
+            //        {
+            //            orderDetail.PaymentName = "";
+            //        }
+            //        listData.Add(orderDetail);
+            //    }
+            //}
+            //return listData;
         }
 
 
@@ -571,7 +567,7 @@ namespace ResoReportDataService.Services
             #endregion
         }
 
-        public FileStreamResult ExportOrderDetailReportToExcel(int storeId, DateFilter filter)
+        public FileStreamResult ExportOrderDetailReportToExcel(Guid storeId, DateFilter filter)
         {
             #region Check Date range
 

@@ -30,14 +30,14 @@ namespace ResoReport.Controllers
         public ActionResult<BaseResponsePagingViewModel<ProductReportViewModel>> GetProductReports(
             [FromQuery] ProductReportViewModel modelFilter,
             [FromQuery] DateFilter dateFilter, [FromQuery] PagingModel paging,
-            [FromQuery] int? storeId)
+            [FromQuery] Guid? storeId)
         {
             return _service.GetStoreProductProgress(modelFilter, dateFilter, paging, storeId);
         }
 
         [MapToApiVersion("1.0")]
         [HttpGet("export")]
-        public ActionResult ProductExport([FromQuery] DateFilter filter, int? storeId)
+        public ActionResult ProductExport([FromQuery] DateFilter filter, Guid? storeId)
         {
             var result = _service.ExportProductReport(filter, storeId);
             return result;

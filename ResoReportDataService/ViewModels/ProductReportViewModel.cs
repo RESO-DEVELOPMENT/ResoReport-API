@@ -9,7 +9,7 @@ namespace ResoReportDataService.ViewModels
         public string ProductName { get; set; }
         public string ProductCode { get; set; }
         public string CateName { get; set; }
-        public int? ProductId { get; set; }
+        public Guid? ProductId { get; set; }
         public int? Quantity { get; set; }
         public double? UnitPrice { get; set; }
         public double? UnitPriceNoVat { get; set; }

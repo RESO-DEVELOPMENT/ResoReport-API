@@ -92,7 +92,7 @@ namespace ResoReport.Controllers
 
         [MapToApiVersion("1.0")]
         [HttpGet("orderDetailReport/storeId")]
-        public ActionResult<List<OrderDetailReportViewModel>> GetOrderDetailReportForStore([FromQuery] int storeId, [FromQuery] DateFilter filter)
+        public ActionResult<List<OrderDetailReportViewModel>> GetOrderDetailReportForStore([FromQuery] Guid storeId, [FromQuery] DateFilter filter)
         {
             var result =  _reportService.ExportOrderDetailReportToExcel(storeId , filter);
             return result;

@@ -15,6 +15,7 @@ using ResoReportDataService.Models;
 using ResoReportDataService.RequestModels;
 using ResoReportDataService.ViewModels;
 using AutoMapper;
+using Microsoft.OpenApi.Extensions;
 
 namespace ResoReportDataService.Services
 {
@@ -63,46 +64,67 @@ namespace ResoReportDataService.Services
 
             #endregion
 
-            var dateReportsAllStore = _passioContext.DateReports
-                .Where(x => x.Date <= to && x.Date >= from && x.Status == 1);
-
-            var dateReportsOneStore = _passioContext.DateReports
-                .Where(x => x.Date <= to && x.Date >= from && x.Status == 1 && x.StoreId == storeId);
-
-            IQueryable<ResoReportDataService.Models.DateReport> dateReports;
-
-            if (storeId == null)
-            {
-                dateReports = dateReportsAllStore;
-            }
-            else
-            {
-                dateReports = dateReportsOneStore;
-            }
-
+            var dateReports =
+                storeId != null ?
+                _posSystemContext.Orders.Include(x => x.Session)
+                                        .Where(x => x.Status == OrderStatus.PAID.GetDisplayName() &&
+                                                    DateTime.Compare(x.CheckInDate, (DateTime)from) >= 0 &&
+                                                    DateTime.Compare(x.CheckInDate, (DateTime)to) <= 0) :
+                _posSystemContext.Orders.Include(x => x.Session)
+                                        .Where(x => x.Session.StoreId.Equals(storeId) &&
+                                                    x.Status.Equals(OrderStatus.PAID) &&
+                                                    DateTime.Compare(x.CheckInDate, (DateTime)from) >= 0 &&
+                                                    DateTime.Compare(x.CheckInDate, (DateTime)to) <= 0);
 
             var result = dateReports
-                .Include(x => x.Store)
-                .Where(x => x.Date <= to && x.Date >= from && x.Status == 1)
                 .GroupBy(x => new
                 {
-                    StoreId = x.StoreId,
-                    StoreName = x.Store.Name,
+                    StoreId = x.Session.Store.Id,
+                    StoreName = x.Session.Store.Name,
                 })
-                .Select(x => new StoreReportViewModel()
+                .Select(x => new StoreReportViewModel
                 {
                     StoreName = x.Key.StoreName,
-                    TotalOrderAtStore = x.Sum(w => w.TotalOrderAtStore),
-                    TotalOrderTakeAway = x.Sum(w => w.TotalOrderTakeAway),
-                    TotalOrderDelivery = x.Sum(w => w.TotalOrderDelivery),
-                    FinalAmountAtStore = x.Sum(w => w.FinalAmountAtStore),
-                    FinalAmountTakeAway = x.Sum(w => w.FinalAmountTakeAway),
-                    FinalAmountDelivery = x.Sum(w => w.FinalAmountDelivery),
-                    TotalBills = x.Sum(w => w.TotalOrderAtStore + w.TotalOrderTakeAway + w.TotalOrderDelivery),
-                    TotalSales = x.Sum(w => w.TotalAmount) - x.Sum(w => w.FinalAmountCard),
-                    TotalDiscount = x.Sum(w => w.Discount + w.DiscountOrderDetail),
-                    TotalSalesAfterDiscount = x.Sum(w => w.FinalAmount) - x.Sum(w => w.FinalAmountCard)
+
+                    TotalOrderAtStore = x.Count(y => y.OrderType.Equals(OrderType.EAT_IN)),
+                    TotalOrderTakeAway = x.Count(y => y.OrderType.Equals(OrderType.TAKE_AWAY)),
+                    TotalOrderDelivery = x.Count(y => y.OrderType.Equals(OrderType.DELIVERY)),
+
+                    FinalAmountAtStore = x.Where(y => y.OrderType.Equals(OrderType.EAT_IN)).Sum(y => y.FinalAmount),
+                    FinalAmountTakeAway = x.Where(y => y.OrderType.Equals(OrderType.TAKE_AWAY)).Sum(y => y.FinalAmount),
+                    FinalAmountDelivery = x.Where(y => y.OrderType.Equals(OrderType.DELIVERY)).Sum(y => y.FinalAmount),
+
+                    TotalBills = x.Count(),
+                    TotalSales = x.Sum(y => y.TotalAmount),
+                    TotalDiscount = x.Sum(y => y.Discount),
+                    TotalSalesAfterDiscount = x.Sum(y => y.FinalAmount)
+
                 }).ToList();
+
+            #region OldCode
+            //var result = dateReports
+            //    .Include(x => x.Store)
+            //    .Where(x => x.Date <= to && x.Date >= from && x.Status == 1)
+            //    .GroupBy(x => new
+            //    {
+            //        StoreId = x.StoreId,
+            //        StoreName = x.Store.Name,
+            //    })
+            //    .Select(x => new StoreReportViewModel()
+            //    {
+            //        StoreName = x.Key.StoreName,
+            //        TotalOrderAtStore = x.Sum(w => w.TotalOrderAtStore),
+            //        TotalOrderTakeAway = x.Sum(w => w.TotalOrderTakeAway),
+            //        TotalOrderDelivery = x.Sum(w => w.TotalOrderDelivery),
+            //        FinalAmountAtStore = x.Sum(w => w.FinalAmountAtStore),
+            //        FinalAmountTakeAway = x.Sum(w => w.FinalAmountTakeAway),
+            //        FinalAmountDelivery = x.Sum(w => w.FinalAmountDelivery),
+            //        TotalBills = x.Sum(w => w.TotalOrderAtStore + w.TotalOrderTakeAway + w.TotalOrderDelivery),
+            //        TotalSales = x.Sum(w => w.TotalAmount) - x.Sum(w => w.FinalAmountCard),
+            //        TotalDiscount = x.Sum(w => w.Discount + w.DiscountOrderDetail),
+            //        TotalSalesAfterDiscount = x.Sum(w => w.FinalAmount) - x.Sum(w => w.FinalAmountCard)
+            //    }).ToList();
+            #endregion
 
             return result;
         }
