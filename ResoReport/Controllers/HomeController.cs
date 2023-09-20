@@ -23,14 +23,14 @@ namespace ResoReport.Controllers
 
         [HttpGet("summary")]
         [Cache(300000)]
-        public ActionResult<SummaryViewModel> GetSummary([FromQuery] int? storeId = null)
+        public ActionResult<SummaryViewModel> GetSummary([FromQuery] Guid? storeId = null)
         {
             return Ok(_homeService.GetSummary(storeId));
         }
 
         [HttpGet("business-insights")]
         public ActionResult<BusinessInsightViewModel> GetBusinessInsights([FromQuery] string duration,
-            [FromQuery] int? storeId = null)
+            [FromQuery] Guid? storeId = null)
 
         {
             return Ok(_homeService.GetBusinessInsights(duration, storeId));

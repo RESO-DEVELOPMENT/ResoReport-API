@@ -27,10 +27,10 @@ namespace ResoReport.Controllers
         [HttpGet]
         public ActionResult<BaseResponsePagingViewModel<CategoryReportViewModel>> GetCategoryReport(
             [FromQuery] DateFilter filter,
-            [FromQuery] PagingModel paging, [FromQuery] int brandId = 1,
-            [FromQuery] string checkDeal = "beforeDeal", [FromQuery] int storeId = 0)
+            [FromQuery] PagingModel paging, [FromQuery] Guid? brandId = null,
+            [FromQuery] string checkDeal = "beforeDeal", [FromQuery] Guid? storeId = null)
         {
-            if (storeId == 0)
+            if (storeId == null)
             {
                 return _categoryReportService.GetCategoryReportAllStore(filter, paging, brandId, checkDeal);
             }

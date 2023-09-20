@@ -14,6 +14,7 @@ namespace ResoReportDataService.ViewModels
         public TrendInsight GrossSales { get; set; }
         public TrendInsight NetSales { get; set; }
         public TrendInsight AvgTransactionAmount { get; set; }
+
         public TrendInsight TotalCustomers { get; set; }
     }
 

@@ -28,3 +28,18 @@ D:\CODE\POS_Project\Report - Deer\ResoReportDataAccess\obj\Debug\net5.0\refint\R
 D:\CODE\POS_Project\Report - Deer\ResoReportDataAccess\obj\Debug\net5.0\ResoReportDataAccess.pdb
 D:\CODE\POS_Project\Report - Deer\ResoReportDataAccess\obj\Debug\net5.0\ResoReportDataAccess.genruntimeconfig.cache
 D:\CODE\POS_Project\Report - Deer\ResoReportDataAccess\obj\Debug\net5.0\ref\ResoReportDataAccess.dll
+D:\APPApi\ResoReport-API\ResoReportDataAccess\bin\Debug\net5.0\ResoReportDataAccess.deps.json
+D:\APPApi\ResoReport-API\ResoReportDataAccess\bin\Debug\net5.0\ResoReportDataAccess.runtimeconfig.json
+D:\APPApi\ResoReport-API\ResoReportDataAccess\bin\Debug\net5.0\ResoReportDataAccess.runtimeconfig.dev.json
+D:\APPApi\ResoReport-API\ResoReportDataAccess\bin\Debug\net5.0\ResoReportDataAccess.dll
+D:\APPApi\ResoReport-API\ResoReportDataAccess\bin\Debug\net5.0\ResoReportDataAccess.pdb
+D:\APPApi\ResoReport-API\ResoReportDataAccess\obj\Debug\net5.0\ResoReportDataAccess.csproj.AssemblyReference.cache
+D:\APPApi\ResoReport-API\ResoReportDataAccess\obj\Debug\net5.0\ResoReportDataAccess.GeneratedMSBuildEditorConfig.editorconfig
+D:\APPApi\ResoReport-API\ResoReportDataAccess\obj\Debug\net5.0\ResoReportDataAccess.AssemblyInfoInputs.cache
+D:\APPApi\ResoReport-API\ResoReportDataAccess\obj\Debug\net5.0\ResoReportDataAccess.AssemblyInfo.cs
+D:\APPApi\ResoReport-API\ResoReportDataAccess\obj\Debug\net5.0\ResoReportDataAccess.csproj.CoreCompileInputs.cache
+D:\APPApi\ResoReport-API\ResoReportDataAccess\obj\Debug\net5.0\ResoReportDataAccess.dll
+D:\APPApi\ResoReport-API\ResoReportDataAccess\obj\Debug\net5.0\refint\ResoReportDataAccess.dll
+D:\APPApi\ResoReport-API\ResoReportDataAccess\obj\Debug\net5.0\ResoReportDataAccess.pdb
+D:\APPApi\ResoReport-API\ResoReportDataAccess\obj\Debug\net5.0\ResoReportDataAccess.genruntimeconfig.cache
+D:\APPApi\ResoReport-API\ResoReportDataAccess\obj\Debug\net5.0\ref\ResoReportDataAccess.dll

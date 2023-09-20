@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Extensions;
 using Reso.Sdk.Core.Custom;
 using Reso.Sdk.Core.Utilities;
 using ResoReportDataService.Commons;
@@ -13,10 +14,10 @@ namespace ResoReportDataService.Services
     public interface ICategoryReportService
     {
         BaseResponsePagingViewModel<CategoryReportViewModel> GetCategoryReportAllStore(DateFilter filter,
-            PagingModel paging, int brandId, string checkDeal);
+            PagingModel paging, Guid? brandId, string checkDeal);
 
         BaseResponsePagingViewModel<CategoryReportViewModel> GetCategoryReportOneStore(DateFilter filter,
-            PagingModel paging, int brandId, string checkDeal, int storeId);
+            PagingModel paging, Guid? brandId, string checkDeal, Guid? storeId);
     }
 
     public class CategoryReportService : ICategoryReportService
@@ -28,8 +29,9 @@ namespace ResoReportDataService.Services
             _context = context;
         }
 
+
         public BaseResponsePagingViewModel<CategoryReportViewModel> GetCategoryReportAllStore(DateFilter filter,
-            PagingModel paging, int brandId, string checkDeal)
+            PagingModel paging, Guid? brandId, string checkDeal)
         {
             #region Check Date range
 
@@ -62,26 +64,27 @@ namespace ResoReportDataService.Services
             }
 
             #endregion
-
+            // 1 brand only
             var listProductIDs = _context.Products
                 .Include(x => x.Category)
-                .Where(x => x.IsAvailable == true && x.Cat.BrandId == 1)
-                .Select(x => x.ProductId);
+                .Where(x => x.Status.Equals(ProductStatus.Active.GetDisplayName()) && x.Category.BrandId.ToString().Equals("B21E84CC-5BFF-408E-B38E-026AA996D251"))
+                .Select(x => x.Id);
 
             from = ((DateTime)from).GetStartOfDate();
             to = ((DateTime)to).GetEndOfDate();
 
-            var resultProductReport = _context.DateProducts
-                .Include(x => x.Product)
-                .ThenInclude(x => x.Cat)
-                .Where(x => listProductIDs.Contains(x.ProductId) &&
-                            x.Product.IsAvailable &&
-                            DateTime.Compare(x.Date, (DateTime)from) >= 0 &&
-                            DateTime.Compare(x.Date, (DateTime)to) <= 0)
+            var ProductDate = _context.Orders.SelectMany(x => x.OrderDetails);
+
+            var resultProductReport = ProductDate             
+                .Include(x=>x.MenuProduct).ThenInclude(x=>x.Product).ThenInclude(x=>x.Category)
+                .Where(x => listProductIDs.Contains(x.MenuProduct.Product.Id) &&
+                            x.MenuProduct.Product.Status.Equals(ProductStatus.Active.GetDisplayName()) &&
+                            DateTime.Compare(x.Order.CheckInDate, (DateTime)from) >= 0 &&
+                            DateTime.Compare(x.Order.CheckInDate, (DateTime)to) <= 0)
                 .GroupBy(x => new
                 {
-                    CategoryId = x.Product.CatId,
-                    CategoryName = x.Product.Cat.CateName
+                    CategoryId = x.MenuProduct.Product.CategoryId,
+                    CategoryName = x.MenuProduct.Product.Category.Name
                 })
                 .Select(x => new CategoryReportViewModel()
                 {
@@ -135,7 +138,7 @@ namespace ResoReportDataService.Services
         }
 
         public BaseResponsePagingViewModel<CategoryReportViewModel> GetCategoryReportOneStore(DateFilter filter,
-            PagingModel paging, int brandId, string checkDeal, int storeId)
+            PagingModel paging, Guid? brandId, string checkDeal, Guid? storeId)
         {
             #region Check Date range
 
@@ -168,27 +171,29 @@ namespace ResoReportDataService.Services
             }
 
             #endregion
+            var ProductDate = _context.Orders.SelectMany(x => x.OrderDetails);
 
-            var listProductIDs = _context.Products
-                .Include(x => x.Cat)
-                .Where(x => x.IsAvailable == true && x.Cat.BrandId == 1)
-                .Select(x => x.ProductId);
+            
+            // 1 brand only
+            var listProductIDs = ProductDate
+                .Include(x => x.MenuProduct).ThenInclude(x => x.Product).ThenInclude(x => x.Category)
+                .Where(x => x.MenuProduct.Product.Status.Equals(ProductStatus.Active.GetDisplayName()) && x.MenuProduct.Product.Category.BrandId.Equals("B21E84CC-5BFF-408E-B38E-026AA996D251"))
+                .Select(x => x.MenuProduct.Product.Id);
 
             from = ((DateTime)from).GetStartOfDate();
             to = ((DateTime)to).GetEndOfDate();
 
-            var resultProductReport = _context.DateProducts
-                .Include(x => x.Product)
-                .ThenInclude(x => x.Cat)
-                .Where(x => listProductIDs.Contains(x.ProductId) &&
-                            x.StoreId == storeId &&
-                            x.Product.IsAvailable &&
-                            DateTime.Compare(x.Date, (DateTime)from) >= 0 &&
-                            DateTime.Compare(x.Date, (DateTime)to) <= 0)
+            var resultProductReport = ProductDate
+                .Include(x => x.MenuProduct).ThenInclude(x => x.Product).ThenInclude(x => x.Category)
+                .Where(x => listProductIDs.Contains(x.MenuProduct.Product.Id) &&
+                            x.Order.Session.StoreId.Equals(storeId) &&
+                            x.MenuProduct.Product.Status.Equals(ProductStatus.Active.GetDisplayName()) &&
+                            DateTime.Compare(x.Order.CheckInDate, (DateTime)from) >= 0 &&
+                            DateTime.Compare(x.Order.CheckInDate, (DateTime)to) <= 0)
                 .GroupBy(x => new
                 {
-                    CategoryId = x.Product.CatId,
-                    CategoryName = x.Product.Cat.CateName
+                    CategoryId = x.MenuProduct.Product.CategoryId,
+                    CategoryName = x.MenuProduct.Product.Category.Name
                 })
                 .Select(x => new CategoryReportViewModel()
                 {

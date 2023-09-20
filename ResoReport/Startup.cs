@@ -66,7 +66,7 @@ namespace ResoReport
                 }
             );
             services.ConfigureAutoMapper();
-            services.AddDbContext<ProdPassioContext>(options =>
+            services.AddDbContext<PosSystemContext>(options =>
             {
                 options.UseLazyLoadingProxies();
                 options.UseSqlServer(Configuration.GetConnectionString("ConnectionString"));

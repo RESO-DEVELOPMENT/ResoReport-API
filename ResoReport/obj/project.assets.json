@@ -11613,24 +11613,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\M S I\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\phucv\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CODE\\POS_Project\\Report - Deer\\ResoReport\\ResoReport.csproj",
+      "projectUniqueName": "D:\\APPApi\\ResoReport-API\\ResoReport\\ResoReport.csproj",
       "projectName": "ResoReport",
-      "projectPath": "D:\\CODE\\POS_Project\\Report - Deer\\ResoReport\\ResoReport.csproj",
-      "packagesPath": "C:\\Users\\M S I\\.nuget\\packages\\",
-      "outputPath": "D:\\CODE\\POS_Project\\Report - Deer\\ResoReport\\obj\\",
+      "projectPath": "D:\\APPApi\\ResoReport-API\\ResoReport\\ResoReport.csproj",
+      "packagesPath": "C:\\Users\\phucv\\.nuget\\packages\\",
+      "outputPath": "D:\\APPApi\\ResoReport-API\\ResoReport\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\M S I\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\phucv\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -11644,11 +11639,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\CODE\\POS_Project\\Report - Deer\\ResoReportDataAccess\\ResoReportDataAccess.csproj": {
-              "projectPath": "D:\\CODE\\POS_Project\\Report - Deer\\ResoReportDataAccess\\ResoReportDataAccess.csproj"
+            "D:\\APPApi\\ResoReport-API\\ResoReportDataAccess\\ResoReportDataAccess.csproj": {
+              "projectPath": "D:\\APPApi\\ResoReport-API\\ResoReportDataAccess\\ResoReportDataAccess.csproj"
             },
-            "D:\\CODE\\POS_Project\\Report - Deer\\ResoReportDataService\\ResoReportDataService.csproj": {
-              "projectPath": "D:\\CODE\\POS_Project\\Report - Deer\\ResoReportDataService\\ResoReportDataService.csproj"
+            "D:\\APPApi\\ResoReport-API\\ResoReportDataService\\ResoReportDataService.csproj": {
+              "projectPath": "D:\\APPApi\\ResoReport-API\\ResoReportDataService\\ResoReportDataService.csproj"
             }
           }
         }
