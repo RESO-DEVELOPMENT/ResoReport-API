@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Dynamic.Core;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Extensions;
 using ResoReportDataAccess.Models;
 using ResoReportDataService.Commons;
 using ResoReportDataService.Models;
@@ -13,57 +14,50 @@ namespace ResoReportDataService.Services
 {
     public interface IHomeService
     {
-        SummaryViewModel GetSummary(int? storeId);
-        BusinessInsightViewModel GetBusinessInsights(string duration, int? storeId);
+        SummaryViewModel GetSummary(Guid? storeId);
+        BusinessInsightViewModel GetBusinessInsights(string duration, Guid? storeId);
     }
 
     public class HomeService : IHomeService
     {
-        private readonly ProdPassioContext _passioContext;
+        private readonly PosSystemContext _passioContext;
         private readonly DataWareHouseReportingContext _dataWareHouseReportingContext;
 
-        public HomeService(ProdPassioContext passioContext, DataWareHouseReportingContext dataWareHouseReportingContext)
+        public HomeService(PosSystemContext passioContext, DataWareHouseReportingContext dataWareHouseReportingContext)
         {
             _passioContext = passioContext;
             _dataWareHouseReportingContext = dataWareHouseReportingContext;
         }
 
-        public SummaryViewModel GetSummary(int? storeId)
+        public SummaryViewModel GetSummary(Guid? storeId)
         {
             var orders =
                 storeId == null
                     ? _passioContext.Orders
-                        .Include(x => x.Store)
+                        .Include(x => x.Session)
                         .Where(x =>
-                            x.CheckInDate.HasValue &&
-                            x.Store.RunReport == true &&
-                            x.Store.IsAvailable == true &&
-                            x.Store.Type != (int)StoreTypeEnum.Hostel &&
-                            x.OrderStatus == (int)OrderStatusEnum.Finish &&
-                            DateTime.Compare((DateTime)x.CheckInDate, Utils.GetCurrentDate().GetStartOfDate()) >= 0 &&
-                            DateTime.Compare((DateTime)x.CheckInDate, Utils.GetCurrentDate().GetEndOfDate()) <= 0)
+                            x.Status.Equals(OrderStatus.PAID.GetDisplayName())
+                    &&
+                    DateTime.Compare((DateTime)x.CheckInDate, Utils.GetCurrentDate().GetStartOfDate()) >= 0 &&
+                    DateTime.Compare((DateTime)x.CheckInDate, Utils.GetCurrentDate().GetEndOfDate()) <= 0)
                     : _passioContext.Orders
-                        .Include(x => x.Store)
+                        .Include(x => x.Session)
                         .Where(x =>
-                            x.StoreId == storeId &&
-                            x.CheckInDate.HasValue &&
-                            x.Store.RunReport == true &&
-                            x.Store.IsAvailable == true &&
-                            x.Store.Type != (int)StoreTypeEnum.Hostel &&
-                            x.OrderStatus == (int)OrderStatusEnum.Finish &&
+                            x.Session.StoreId.Equals(storeId) &&
+                            x.Status.Equals(OrderStatus.PAID.GetDisplayName())
+                            &&
                             DateTime.Compare((DateTime)x.CheckInDate, Utils.GetCurrentDate().GetStartOfDate()) >= 0 &&
                             DateTime.Compare((DateTime)x.CheckInDate, Utils.GetCurrentDate().GetEndOfDate()) <= 0);
 
             return new SummaryViewModel()
             {
-                NetSales = orders.Sum(x => x.TotalAmount) -
-                           orders.Where(x => x.OrderType == (int)OrderTypeEnum.OrderCard).Sum(x => x.TotalAmount),
-                TotalOrders = orders.Count() - orders.Count(x => x.OrderType == (int)OrderTypeEnum.OrderCard),
-                LastUpdatedTime = Utils.GetCurrentDate()
+                NetSales = orders.Sum(x => x.TotalAmount),
+                TotalOrders = orders.Count(),
+                LastUpdatedTime = DateTime.Now
             };
         }
 
-        public BusinessInsightViewModel GetBusinessInsights(string duration, int? storeId)
+        public BusinessInsightViewModel GetBusinessInsights(string duration, Guid? storeId)
         {
             (DateTime, DateTime) durationDateTime = Utils.GetPast7Days();
             (DateTime, DateTime) durationPreviousDateTime = Utils.GetPreviousPast7Days();
@@ -101,20 +95,20 @@ namespace ResoReportDataService.Services
             #region Get reports
 
             var dateReports = storeId == null
-                ? _passioContext.DateReports
-                    .Where(x => x.Status == 1)
-                : _passioContext.DateReports
-                    .Where(x => x.Status == 1 && x.StoreId == storeId);
+                ? _passioContext.Orders
+                    .Where(x => x.Status.Equals(OrderStatus.PAID.GetDisplayName()))
+                : _passioContext.Orders
+                    .Where(x => x.Status.Equals(OrderStatus.PAID.GetDisplayName()) && x.Session.StoreId.Equals(storeId));
 
             var dateReportsInDuration = dateReports
                 .Where(x =>
-                    DateTime.Compare(x.Date, durationDateTime.Item1) >= 0 &&
-                    DateTime.Compare(x.Date, durationDateTime.Item2) <= 0);
+                    DateTime.Compare(x.CheckInDate, durationDateTime.Item1) >= 0 &&
+                    DateTime.Compare(x.CheckInDate, durationDateTime.Item2) <= 0);
 
             var dateReportsInPreviousDuration = dateReports
                 .Where(x =>
-                    DateTime.Compare(x.Date, durationPreviousDateTime.Item1) >= 0 &&
-                    DateTime.Compare(x.Date, durationPreviousDateTime.Item2) <= 0);
+                    DateTime.Compare(x.CheckInDate, durationPreviousDateTime.Item1) >= 0 &&
+                    DateTime.Compare(x.CheckInDate, durationPreviousDateTime.Item2) <= 0);
 
             //var dateProducts = storeId == null
             //    ? _passioContext.DateProducts
@@ -127,29 +121,55 @@ namespace ResoReportDataService.Services
             //                    DateTime.Compare(x.Date, durationDateTime.Item2) <= 0);
 
             var dateProducts = storeId == null
-                ? _passioContext.DateProducts
-                    .Where(x => 
-                                DateTime.Compare(x.Date, durationDateTime.Item1) >= 0 &&
-                                DateTime.Compare(x.Date, durationDateTime.Item2) <= 0)
-                : _passioContext.DateProducts
-                    .Where(x =>  x.StoreId == storeId &&
-                                DateTime.Compare(x.Date, durationDateTime.Item1) >= 0 &&
-                                DateTime.Compare(x.Date, durationDateTime.Item2) <= 0);
+                ? _passioContext.Orders
+                .Include(x => x.Session).Include(x => x.OrderDetails).ThenInclude(x => x.MenuProduct).ThenInclude(x => x.Product)
+                    .Where(x =>
+                                DateTime.Compare(x.CheckInDate, durationDateTime.Item1) >= 0 &&
+                                DateTime.Compare(x.CheckInDate, durationDateTime.Item2) <= 0)
+                : _passioContext.Orders
+                .Include(x => x.Session).Include(x => x.OrderDetails).ThenInclude(x => x.MenuProduct).ThenInclude(x => x.Product)
+                    .Where(x => x.Session.StoreId.Equals(storeId) &&
+                                DateTime.Compare(x.CheckInDate, durationDateTime.Item1) >= 0 &&
+                                DateTime.Compare(x.CheckInDate, durationDateTime.Item2) <= 0);
+
+            //List<Models.OrderDetail> myorder = new List<Models.OrderDetail>();
+
+            //foreach(var orderdetail in dateProducts)
+            //{
+            //    foreach (var item in orderdetail.OrderDetails)
+            //    {
+            //        myorder.Add(item);
+            //    }
+            //}
+
+            var myorder = dateProducts.SelectMany(x => x.OrderDetails);
 
             #endregion
 
             #region Number of transactions dashboard
 
+            var TotalOrder = storeId == null
+                ? _passioContext.Orders.Count()
+                : _passioContext.Orders.Where(x => x.Session.StoreId.Equals(storeId)).Count();
+
+            var TotalOrderRID = storeId == null
+                ? dateReportsInDuration.Count()
+                : dateReportsInDuration.Where(x => x.Session.StoreId.Equals(storeId)).Count();
+
+            var TotalOrderRIPD = storeId == null
+                ? dateReportsInPreviousDuration.Count()
+                : dateReportsInPreviousDuration.Where(x => x.Session.StoreId.Equals(storeId)).Count();
+
             var orderInsight = dateReportsInDuration
                 .GroupBy(x => new
                 {
-                    x.Date
+                    x.CheckInDate
                 })
-                .Select(x => new  DashboardInsight
+                .Select(x => new DashboardInsight
                     ()
                 {
-                    Date = x.Key.Date,
-                    Value = x.Sum(r => r.TotalOrder)
+                    Date = x.Key.CheckInDate,
+                    Value = x.Sum(r => r.TotalAmount)
                 });
 
             #endregion
@@ -157,19 +177,9 @@ namespace ResoReportDataService.Services
 
             #region TrendInsights
 
-            var totalTransaction = new TrendInsight()
-            {
-                Value = dateReportsInDuration.Sum(r => r.TotalOrder),
-                Trend = dateReportsInPreviousDuration.Sum(r => r.TotalOrder) != 0
-                    ? (dateReportsInDuration.Sum(r => r.TotalOrder) -
-                       dateReportsInPreviousDuration.Sum(r => r.TotalOrder)) /
-                    (double)dateReportsInPreviousDuration.Sum(r => r.TotalOrder) * 100
-                    : 0
-            };
-
             var grossSales = new TrendInsight()
             {
-                Value = dateReportsInDuration.Sum(x => x.FinalAmount) ?? 0,
+                Value = dateReportsInDuration.Sum(x => x.FinalAmount),
                 Trend = dateReportsInPreviousDuration.Sum(x => x.FinalAmount) != 0
                     ? (dateReportsInDuration.Sum(x => x.FinalAmount) -
                        dateReportsInPreviousDuration.Sum(x => x.FinalAmount)) /
@@ -179,7 +189,7 @@ namespace ResoReportDataService.Services
 
             var netSales = new TrendInsight()
             {
-                Value = dateReportsInDuration.Sum(x => x.TotalAmount) ?? 0,
+                Value = dateReportsInDuration.Sum(x => x.TotalAmount),
                 Trend = dateReportsInPreviousDuration.Sum(x => x.TotalAmount) != 0
                     ? (dateReportsInDuration.Sum(x => x.TotalAmount) -
                        dateReportsInPreviousDuration.Sum(x => x.TotalAmount)) /
@@ -187,18 +197,28 @@ namespace ResoReportDataService.Services
                     : 0
             };
 
+            var totalTransaction = new TrendInsight()
+            {
+                Value = TotalOrderRID,
+                Trend = TotalOrderRIPD != 0
+                    ? (TotalOrderRID -
+                       TotalOrderRIPD) /
+                    (double)TotalOrderRIPD * 100
+                    : 0
+            };
+
             var avgTransactionAmount = new TrendInsight()
             {
                 Value =
                     dateReportsInDuration.Count() != 0
-                        ? dateReportsInDuration.Sum(x => x.TotalAmount) / dateReportsInDuration.Sum(x=>x.TotalOrder)
+                        ? dateReportsInDuration.Sum(x => x.TotalAmount) / TotalOrderRID
                         : 0,
                 Trend = (dateReportsInPreviousDuration.Count() != 0
                     ? dateReportsInPreviousDuration.Sum(x => x.TotalAmount) / dateReportsInPreviousDuration.Count()
                     : 0) != 0
-                    ? ((dateReportsInDuration.Sum(x => x.TotalAmount) / dateReportsInDuration.Sum(x=>x.TotalOrder) -
-                        dateReportsInPreviousDuration.Sum(x => x.TotalAmount) / dateReportsInPreviousDuration.Sum(x=>x.TotalOrder)) /
-                       dateReportsInPreviousDuration.Sum(x => x.TotalAmount) / dateReportsInPreviousDuration.Sum(x=>x.TotalOrder)) *
+                    ? ((dateReportsInDuration.Sum(x => x.TotalAmount) / TotalOrderRID -
+                        dateReportsInPreviousDuration.Sum(x => x.TotalAmount) / TotalOrderRIPD) /
+                       dateReportsInPreviousDuration.Sum(x => x.TotalAmount) / TotalOrderRIPD) *
                       100
                     : 0
             };
@@ -211,18 +231,18 @@ namespace ResoReportDataService.Services
                 TopPerformingStore = storeId == null
                     ? dateReportsInDuration
                         .OrderByDescending(x => x.TotalAmount)
-                        .First().Store.Name
+                        .First().Session.Store.Name
                     : "",
-                TopSellingItem = dateProducts
+                TopSellingItem = myorder
                     .GroupBy(x => new
                     {
-                        x.ProductId,
-                        x.ProductName
+                        x.MenuProduct.Product.Id,
+                        x.MenuProduct.Product.Name,
                     })
                     .Select(x => new
                     {
                         FinalAmount = x.Sum(d => d.TotalAmount),
-                        ProductName = x.Key.ProductName
+                        ProductName = x.Key.Name
                     }).OrderByDescending(x => x.FinalAmount).First().ProductName,
                 Orders = orderInsight.ToList(),
                 TotalTransaction = totalTransaction,
