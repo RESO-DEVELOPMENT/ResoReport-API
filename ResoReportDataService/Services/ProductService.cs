@@ -7,17 +7,17 @@ using ResoReportDataService.ViewModels;
 
 namespace ResoReportDataService.Services
 {
-    
+
     public interface IProductService
     {
-        List<ProductViewModel>   GetProducts();
+        List<ProductViewModel> GetProducts();
     }
-    public class ProductService:IProductService
+    public class ProductService : IProductService
     {
-        private readonly ProdPassioContext _context;
+        private readonly PosSystemContext _context;
         private readonly IMapper _mapper;
-        
-        public ProductService(ProdPassioContext context, IMapper mapper)
+
+        public ProductService(PosSystemContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
@@ -27,7 +27,7 @@ namespace ResoReportDataService.Services
         public List<ProductViewModel> GetProducts()
         {
             return _context.Products
-                .Where(x => x.Active == true && x.IsAvailable && x.ProductType == 6)
+                .Where(x => x.Status.Equals("Active"))
                 .ProjectTo<ProductViewModel>(_mapper.ConfigurationProvider).ToList();
         }
     }

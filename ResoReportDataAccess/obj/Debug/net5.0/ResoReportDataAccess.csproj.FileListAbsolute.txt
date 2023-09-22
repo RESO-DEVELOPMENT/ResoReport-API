@@ -28,3 +28,18 @@ D:\CODE\POS_Project\Report - Deer\ResoReportDataAccess\obj\Debug\net5.0\refint\R
 D:\CODE\POS_Project\Report - Deer\ResoReportDataAccess\obj\Debug\net5.0\ResoReportDataAccess.pdb
 D:\CODE\POS_Project\Report - Deer\ResoReportDataAccess\obj\Debug\net5.0\ResoReportDataAccess.genruntimeconfig.cache
 D:\CODE\POS_Project\Report - Deer\ResoReportDataAccess\obj\Debug\net5.0\ref\ResoReportDataAccess.dll
+D:\Fall-2023\UpdateTestSure\ResoReportDataAccess\bin\Debug\net5.0\ResoReportDataAccess.deps.json
+D:\Fall-2023\UpdateTestSure\ResoReportDataAccess\bin\Debug\net5.0\ResoReportDataAccess.runtimeconfig.json
+D:\Fall-2023\UpdateTestSure\ResoReportDataAccess\bin\Debug\net5.0\ResoReportDataAccess.runtimeconfig.dev.json
+D:\Fall-2023\UpdateTestSure\ResoReportDataAccess\bin\Debug\net5.0\ResoReportDataAccess.dll
+D:\Fall-2023\UpdateTestSure\ResoReportDataAccess\bin\Debug\net5.0\ResoReportDataAccess.pdb
+D:\Fall-2023\UpdateTestSure\ResoReportDataAccess\obj\Debug\net5.0\ResoReportDataAccess.csproj.AssemblyReference.cache
+D:\Fall-2023\UpdateTestSure\ResoReportDataAccess\obj\Debug\net5.0\ResoReportDataAccess.GeneratedMSBuildEditorConfig.editorconfig
+D:\Fall-2023\UpdateTestSure\ResoReportDataAccess\obj\Debug\net5.0\ResoReportDataAccess.AssemblyInfoInputs.cache
+D:\Fall-2023\UpdateTestSure\ResoReportDataAccess\obj\Debug\net5.0\ResoReportDataAccess.AssemblyInfo.cs
+D:\Fall-2023\UpdateTestSure\ResoReportDataAccess\obj\Debug\net5.0\ResoReportDataAccess.csproj.CoreCompileInputs.cache
+D:\Fall-2023\UpdateTestSure\ResoReportDataAccess\obj\Debug\net5.0\ResoReportDataAccess.dll
+D:\Fall-2023\UpdateTestSure\ResoReportDataAccess\obj\Debug\net5.0\refint\ResoReportDataAccess.dll
+D:\Fall-2023\UpdateTestSure\ResoReportDataAccess\obj\Debug\net5.0\ResoReportDataAccess.pdb
+D:\Fall-2023\UpdateTestSure\ResoReportDataAccess\obj\Debug\net5.0\ResoReportDataAccess.genruntimeconfig.cache
+D:\Fall-2023\UpdateTestSure\ResoReportDataAccess\obj\Debug\net5.0\ref\ResoReportDataAccess.dll

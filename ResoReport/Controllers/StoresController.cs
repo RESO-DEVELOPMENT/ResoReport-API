@@ -24,12 +24,6 @@ namespace ResoReport.Controllers
         {
             return _service.GetListStore();
         }
-        
-        // [MapToApiVersion("1.0")]
-        // [HttpGet("store-report-day")]
-        // public ActionResult<List<StoreViewModel>> GetListStoreByReportDay()
-        // {
-        //     return _service.GetListStoreByReportDay();
-        // }
+
     }
 }

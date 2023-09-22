@@ -19,10 +19,10 @@ namespace ResoReportDataService.Services
 
     public class StoreService : IStoreService
     {
-        private readonly ProdPassioContext _context;
+        private readonly PosSystemContext _context;
         private readonly IMapper _mapper;
-        
-        public StoreService(ProdPassioContext context, IMapper mapper)
+
+        public StoreService(PosSystemContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
@@ -30,10 +30,11 @@ namespace ResoReportDataService.Services
 
         public List<StoreViewModel> GetListStore()
         {
-            return _context.Stores.Where(x => x.IsAvailable == true && x.BrandId == 1)
+            return _context.Stores
+                .Where(x => x.Status.Equals("Active"))
                 .ProjectTo<StoreViewModel>(_mapper.ConfigurationProvider).ToList();
         }
-        
-        
+
+
     }
 }

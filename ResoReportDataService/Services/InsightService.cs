@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Linq.Dynamic.Core;
 using Reso.Sdk.Core.Custom;
 using ResoReportDataAccess.Models;
 using ResoReportDataService.Commons;
@@ -16,12 +17,10 @@ namespace ResoReportDataService.Services
 
     public class InsightService : IInsightService
     {
-        private readonly DataWareHouseReportingContext _dataWareHouseReportingContext;
-        private readonly ProdPassioContext _context;
+        private readonly PosSystemContext _context;
 
-        public InsightService(DataWareHouseReportingContext dataWareHouseReportingContext, ProdPassioContext context)
+        public InsightService(PosSystemContext context)
         {
-            _dataWareHouseReportingContext = dataWareHouseReportingContext;
             _context = context;
         }
 
@@ -60,14 +59,14 @@ namespace ResoReportDataService.Services
             #region Get reports
 
             var dateReports = storeId == null
-                ? _context.DateReports
-                    .Where(x => x.Status == 1 &&
-                                DateTime.Compare(x.Date, (DateTime)from) >= 0 &&
-                                DateTime.Compare(x.Date, (DateTime)to) <= 0)
-                : _context.DateReports
-                    .Where(x => x.Status == 1 && x.StoreId == storeId &&
-                                DateTime.Compare(x.Date, (DateTime)from) >= 0 &&
-                                DateTime.Compare(x.Date, (DateTime)to) <= 0);
+                ? _context.Orders
+                    .Where(x => x.Status.Equals(OrderStatus.PAID.ToString()) &&
+                                DateTime.Compare(x.CheckInDate, (DateTime)from) >= 0 &&
+                                DateTime.Compare(x.CheckInDate, (DateTime)to) <= 0)
+                : _context.Orders
+                    .Where(x => x.Status.Equals(OrderStatus.PAID.ToString()) && x.Session.StoreId.Equals(storeId) 
+                    && DateTime.Compare(x.CheckInDate, (DateTime)from) >= 0 &&
+                                DateTime.Compare(x.CheckInDate, (DateTime)to) <= 0);
 
             #endregion
 
@@ -75,19 +74,19 @@ namespace ResoReportDataService.Services
 
             var totalTransaction = new TrendInsight()
             {
-                Value = dateReports.Sum(r => r.TotalOrder),
+                Value = dateReports.Count(),
                 Trend = 0
             };
 
             var grossSales = new TrendInsight()
             {
-                Value = dateReports.Sum(x => x.FinalAmount) ?? 0,
+                Value = dateReports.Sum(x => x.FinalAmount),
                 Trend = 0
             };
 
             var netSales = new TrendInsight()
             {
-                Value = dateReports.Sum(x => x.TotalAmount) ?? 0,
+                Value = dateReports.Sum(x => x.TotalAmount),
                 Trend = 0
             };
 
@@ -95,7 +94,7 @@ namespace ResoReportDataService.Services
             {
                 Value =
                     dateReports.Count() != 0
-                        ? dateReports.Sum(x => x.TotalAmount) / dateReports.Sum(x=>x.TotalOrder)
+                        ? dateReports.Sum(x => x.TotalAmount) / dateReports.Count()
                         : 0,
                 Trend = 0
             };
@@ -107,45 +106,45 @@ namespace ResoReportDataService.Services
             var numberOfTransactionsDashboard = dateReports
                 .GroupBy(x => new
                 {
-                    x.Date
+                    x.CheckInDate
                 })
                 .Select(x => new DashboardInsight()
                 {
-                    Date = x.Key.Date,
-                    Value = x.Sum(r => r.TotalOrder)
+                    Date = x.Key.CheckInDate,
+                    Value = x.Count()
                 });
 
             var grossSalesDashboard = dateReports
                 .GroupBy(x => new
                 {
-                    x.Date
+                    x.CheckInDate
                 })
                 .Select(x => new DashboardInsight()
                 {
-                    Date = x.Key.Date,
+                    Date = x.Key.CheckInDate,
                     Value = x.Sum(r => r.FinalAmount)
                 });
 
             var netSalesDashboard = dateReports
                 .GroupBy(x => new
                 {
-                    x.Date
+                    x.CheckInDate
                 })
                 .Select(x => new DashboardInsight()
                 {
-                    Date = x.Key.Date,
+                    Date = x.Key.CheckInDate,
                     Value = x.Sum(r => r.TotalAmount)
                 });
 
             var avgTransactionsDashboard = dateReports
                 .GroupBy(x => new
                 {
-                    x.Date
+                    x.CheckInDate
                 })
                 .Select(x => new DashboardInsight()
                 {
-                    Date = x.Key.Date,
-                    Value = x.Sum(r => r.TotalAmount) / x.Sum(r => r.TotalOrder)
+                    Date = x.Key.CheckInDate,
+                    Value = x.Sum(r => r.TotalAmount) / x.Count()
                 });
 
             #endregion
@@ -164,7 +163,7 @@ namespace ResoReportDataService.Services
         }
 
 
-        private SalesInsightViewModel GetSalesInsightsInDuration(string duration, int? storeId)
+        private SalesInsightViewModel GetSalesInsightsInDuration(string duration, int? storeid)
         {
             #region Get duration
 
@@ -196,23 +195,23 @@ namespace ResoReportDataService.Services
 
             #endregion
 
-            #region Get reports
+            #region get reports
 
-            var dateReports = storeId == null
-                ? _context.DateReports
-                    .Where(x => x.Status == 1)
-                : _context.DateReports
-                    .Where(x => x.Status == 1 && x.StoreId == storeId);
+            var dateReports = storeid == null
+                ? _context.Orders
+                    .Where(x => x.Status.Equals(OrderStatus.PAID))
+                : _context.Orders
+                    .Where(x => x.Status.Equals(OrderStatus.PAID) && x.Session.StoreId.Equals(storeid));
 
             var dateReportsInDuration = dateReports
                 .Where(x =>
-                    DateTime.Compare(x.Date, durationDateTime.Item1) >= 0 &&
-                    DateTime.Compare(x.Date, durationDateTime.Item2) <= 0);
+                    DateTime.Compare(x.CheckInDate, durationDateTime.Item1) >= 0 &&
+                    DateTime.Compare(x.CheckInDate, durationDateTime.Item2) <= 0);
 
             var dateReportsInPreviousDuration = dateReports
                 .Where(x =>
-                    DateTime.Compare(x.Date, durationPreviousDateTime.Item1) >= 0 &&
-                    DateTime.Compare(x.Date, durationPreviousDateTime.Item2) <= 0);
+                    DateTime.Compare(x.CheckInDate, durationPreviousDateTime.Item1) >= 0 &&
+                    DateTime.Compare(x.CheckInDate, durationPreviousDateTime.Item2) <= 0);
 
             #endregion
 
@@ -220,17 +219,17 @@ namespace ResoReportDataService.Services
 
             var totalTransaction = new TrendInsight()
             {
-                Value = dateReportsInDuration.Sum(r => r.TotalOrder),
-                Trend = dateReportsInPreviousDuration.Sum(r => r.TotalOrder) != 0
-                    ? (dateReportsInDuration.Sum(r => r.TotalOrder) -
-                       dateReportsInPreviousDuration.Sum(r => r.TotalOrder)) /
-                    (double)dateReportsInPreviousDuration.Sum(r => r.TotalOrder) * 100
+                Value = dateReportsInDuration.Count(),
+                Trend = dateReportsInPreviousDuration.Count() != 0
+                    ? (dateReportsInDuration.Count() -
+                       dateReportsInPreviousDuration.Count()) /
+                    (double)dateReportsInPreviousDuration.Count() * 100
                     : 0
             };
 
             var grossSales = new TrendInsight()
             {
-                Value = dateReportsInDuration.Sum(x => x.FinalAmount) ?? 0,
+                Value = dateReportsInDuration.Sum(x => x.FinalAmount),
                 Trend = dateReportsInPreviousDuration.Sum(x => x.FinalAmount) != 0
                     ? (dateReportsInDuration.Sum(x => x.FinalAmount) -
                        dateReportsInPreviousDuration.Sum(x => x.FinalAmount)) /
@@ -240,7 +239,7 @@ namespace ResoReportDataService.Services
 
             var netSales = new TrendInsight()
             {
-                Value = dateReportsInDuration.Sum(x => x.TotalAmount) ?? 0,
+                Value = dateReportsInDuration.Sum(x => x.TotalAmount),
                 Trend = dateReportsInPreviousDuration.Sum(x => x.TotalAmount) != 0
                     ? (dateReportsInDuration.Sum(x => x.TotalAmount) -
                        dateReportsInPreviousDuration.Sum(x => x.TotalAmount)) /
@@ -252,14 +251,14 @@ namespace ResoReportDataService.Services
             {
                 Value =
                     dateReportsInDuration.Count() != 0
-                        ? dateReportsInDuration.Sum(x => x.TotalAmount) / dateReportsInDuration.Sum(x=>x.TotalOrder)
+                        ? dateReportsInDuration.Sum(x => x.TotalAmount) / dateReportsInDuration.Count()
                         : 0,
-                Trend = (dateReportsInPreviousDuration.Sum(x=>x.TotalOrder) != 0
-                    ? dateReportsInPreviousDuration.Sum(x => x.TotalAmount) / dateReportsInPreviousDuration.Sum(x=>x.TotalOrder)
+                Trend = (dateReportsInPreviousDuration.Count() != 0
+                    ? dateReportsInPreviousDuration.Sum(x => x.TotalAmount) / dateReportsInPreviousDuration.Count()
                     : 0) != 0
-                    ? ((dateReportsInDuration.Sum(x => x.TotalAmount) / dateReportsInDuration.Sum(x=>x.TotalOrder) -
-                        dateReportsInPreviousDuration.Sum(x => x.TotalAmount) / dateReportsInPreviousDuration.Sum(x=>x.TotalOrder)) /
-                       dateReportsInPreviousDuration.Sum(x => x.TotalAmount) / dateReportsInPreviousDuration.Sum(x=>x.TotalOrder)) *
+                    ? ((dateReportsInDuration.Sum(x => x.TotalAmount) / dateReportsInDuration.Count() -
+                        dateReportsInPreviousDuration.Sum(x => x.TotalAmount) / dateReportsInPreviousDuration.Count()) /
+                       dateReportsInPreviousDuration.Sum(x => x.TotalAmount) / dateReportsInPreviousDuration.Count()) *
                       100
                     : 0
             };
@@ -271,45 +270,45 @@ namespace ResoReportDataService.Services
             var numberOfTransactionsDashboard = dateReportsInDuration
                 .GroupBy(x => new
                 {
-                    x.Date
+                    x.CheckInDate
                 })
                 .Select(x => new DashboardInsight()
                 {
-                    Date = x.Key.Date,
-                    Value = x.Sum(r => r.TotalOrder)
+                    Date = x.Key.CheckInDate,
+                    Value = x.Count()
                 });
 
             var grossSalesDashboard = dateReportsInDuration
                 .GroupBy(x => new
                 {
-                    x.Date
+                    x.CheckInDate
                 })
                 .Select(x => new DashboardInsight()
                 {
-                    Date = x.Key.Date,
+                    Date = x.Key.CheckInDate,
                     Value = x.Sum(r => r.FinalAmount)
                 });
 
             var netSalesDashboard = dateReportsInDuration
                 .GroupBy(x => new
                 {
-                    x.Date
+                    x.CheckInDate
                 })
                 .Select(x => new DashboardInsight()
                 {
-                    Date = x.Key.Date,
+                    Date = x.Key.CheckInDate,
                     Value = x.Sum(r => r.TotalAmount)
                 });
 
             var avgTransactionsDashboard = dateReportsInDuration
                 .GroupBy(x => new
                 {
-                    x.Date
+                    x.CheckInDate
                 })
                 .Select(x => new DashboardInsight()
                 {
-                    Date = x.Key.Date,
-                    Value = x.Sum(r => r.TotalAmount) / x.Sum(r => r.TotalOrder)
+                    Date = x.Key.CheckInDate,
+                    Value = x.Sum(r => r.TotalAmount) / x.Count()
                 });
 
             #endregion

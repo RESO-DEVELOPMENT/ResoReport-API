@@ -1,8 +1,10 @@
-﻿namespace ResoReportDataService.ViewModels
+﻿using System;
+
+namespace ResoReportDataService.ViewModels
 {
     public class ProductViewModel
     {
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
+        public Guid Id { get; set; }
+        public string Name { get; set; }
     }
 }
