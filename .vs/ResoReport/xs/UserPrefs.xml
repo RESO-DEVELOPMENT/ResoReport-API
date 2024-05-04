@@ -1,0 +1,22 @@
+﻿<Properties>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ResoReportDataService/Models/PosSystemContext.cs">
+    <Files>
+      <File FileName="global.json" Line="1" Column="1" />
+      <File FileName="ResoReportDataService/Services/CategoryReportService.cs" Line="1" Column="1" />
+      <File FileName="ResoReportDataService/Services/ReportService.cs" Line="41" Column="36" />
+      <File FileName="ResoReportDataService/Services/RawQueryService.cs" Line="1" Column="1" />
+      <File FileName="ResoReportDataService/Models/PosSystemContext.cs" Line="9" Column="26" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__" />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+</Properties>
